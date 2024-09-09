@@ -1,5 +1,5 @@
 --// hwid system
-local hwidT = loadstring(game:HttpGet("holdonnnn"))
+local hwidT = loadstring(game:HttpGet("https://github.com/Ghxtyyzy/Ghost-Hub/blob/main/HWID.json"))
 local hwid = game:GetService("RbxAnalyticsService"):GetClientId()
 local plr = game:GetService("Players").LocalPlayer
 
