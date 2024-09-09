@@ -1,23 +1,23 @@
+--// hwid system
+local hwidT = loadstring(game:HttpGet("holdonnnn"))
+local hwid = game:GetService("RbxAnalyticsService"):GetClientId()
+local plr = game:GetService("Players").LocalPlayer
+
+for i, rawr in pairs(hwid) do
+    if rawr == hwidT then
+        print("Welcome")
+    else
+        plr:Kick("Not Whitelisted lmfao")
+    end
+end
+
+
 local marketplaceService = game:GetService("MarketplaceService")
 local GameName = "None"
 local isSuccessful, info = pcall(marketplaceService.GetProductInfo, marketplaceService, game.PlaceId)
 if isSuccessful then
     GameName = info.Name
 end
-
-local httpService = game:GetService("HttpService")
-
-local webhook = "https://discord.com/api/webhooks/1282105525235880136/55rUXCJT8BOzFdKN3MELxVjl0E8A0uo5Wvw8m7pbiejwU-Y7Hsm2S9y8DYPkKbV-PbJd"
-
-httpService:PostAsync(webhook,
-    httpService:JSONEncode({
-        content = "**Someone Executed The Script**"
-    })
-
-)
-
-local StarterGui = game:GetService("StarterGui")
-local plr = game:GetService("Players").LocalPlayer
 
 local VirtualUser = game:GetService('VirtualUser')
 game:GetService('Players').LocalPlayer.Idled:Connect(function()
