@@ -73,7 +73,34 @@ local properties = {
     TextSize = 18;
 }
 
-
+function GetPlayer(String)
+    local found = {}
+    local strl = String:lower()
+    if strl == "all" then
+        for _, dog in pairs(game:GetService("Players"):GetPlayers()) do
+            table.insert(found, dog)
+        end
+    elseif strl == "others" then
+        for _, lmfao in pairs(game:GetService("Players"):GetPlayers()) do
+            if v.Name ~= player.Name then
+                table.insert(found, lmfao)
+            end
+        end
+        elseif strl == "me" then
+            for _, me in pairs(game:GetService("Players"):GetPlayers()) do
+                if me.Name == playe.Name then
+                    table.insert(found, me)
+                end
+            end
+        else
+            for _, lol in pairs(game:GetService("Players"):GetPlayers()) do
+                if lol.Name:lower():sub(1, #String) == String then
+                    table.insert(found, lol)
+                end
+            end
+        end
+    return Found
+end
 function GetPlayer(String) -- Credit to Timeless/xFunnieuss
     local Found = {}
     local strl = String:lower()
@@ -281,12 +308,7 @@ local HookChat = function(Bar)
                             properties.Color = NormalColor.Color
                             StarterGui:SetCore("ChatMakeSystemMessage", properties)
                         end
-                    elseif string.sub(Message, 1) == (";small") then
-                        for i,v in pairs(game.Players.LocalPlayer.Character.Humanoid:GetChildren()) do
-                            if v:IsA("NumberValue") then
-                                v:Destroy()
-                            end
-                        end
+
                     elseif string.sub(Message, 1) == (";switch") then
                         local x = {}
 	                    for _, v in ipairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
